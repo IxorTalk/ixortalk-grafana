@@ -69,8 +69,8 @@
         </developer>
     </developers>
     <scm>
-        <connection>scm:git:git@github.com:ixortalkadmin/ixortalk-grafana.git</connection>
-        <developerConnection>scm:git:git@github.com:ixortalkadmin/ixortalk-grafana.git</developerConnection>
+        <connection>scm:git:git@github.com:ixortalk/ixortalk-grafana.git</connection>
+        <developerConnection>scm:git:git@github.com:ixortalk/ixortalk-grafana.git</developerConnection>
         <url>https://github.com/ixortalk/ixortalk-grafana/tree/master</url>
         <tag>HEAD</tag>
     </scm>
