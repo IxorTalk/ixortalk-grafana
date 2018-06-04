@@ -34,7 +34,7 @@
 
     <name>ixortalk-grafana</name>
     <description>IxorTalk docker for Grafana</description>
-    <url>https://github.com/ixortalkadmin/ixortalk-grafana/tree/master</url>
+    <url>https://github.com/ixortalk/ixortalk-grafana/tree/master</url>
 
     <organization>
         <name>IxorTalk CVBA</name>
@@ -71,7 +71,7 @@
     <scm>
         <connection>scm:git:git@github.com:ixortalkadmin/ixortalk-grafana.git</connection>
         <developerConnection>scm:git:git@github.com:ixortalkadmin/ixortalk-grafana.git</developerConnection>
-        <url>https://github.com/ixortalkadmin/ixortalk-grafana/tree/master</url>
+        <url>https://github.com/ixortalk/ixortalk-grafana/tree/master</url>
         <tag>HEAD</tag>
     </scm>
 
