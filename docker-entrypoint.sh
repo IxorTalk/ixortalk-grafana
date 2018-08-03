@@ -36,6 +36,17 @@ IXORTALK_CONFIG_SERVER_PATH=${IXORTALK_CONFIG_SERVER_URL}/ixortalk.grafana/${IXO
 echo "Downloading Grafana Datasource"
 curl  -s ${IXORTALK_CONFIG_SERVER_PATH}/grafana-ds.json -o /tmp/grafana-ds.json
 
+
+echo "Copying grafana datasource list from ${IXORTALK_CONFIG_SERVER_PATH}"
+datasource_list=$(curl -s ${IXORTALK_CONFIG_SERVER_PATH}/datasource-list.txt)
+
+echo "Downloading datasources : \n $datasource_list"
+
+for datasource in ${datasource_list}
+do
+    curl -s ${IXORTALK_CONFIG_SERVER_PATH}/${datasource} -o /tmp/${datasource}
+done
+
 echo "Copying grafana dashboard list from ${IXORTALK_CONFIG_SERVER_PATH}"
 dashboard_list=$(curl -s ${IXORTALK_CONFIG_SERVER_PATH}/dashboard-list.txt)
 
@@ -52,8 +63,12 @@ echo "Running Grafana "
 echo "Sleeping for 25 seconds to allow Grafana to start (Grafana needs to be up and running to create the datasource / dashboards)"
 sleep 25
 
-echo "Creating datasource"
-curl -s -H 'Content-Type: application/json' -d @/tmp/grafana-ds.json http://localhost:3000/api/datasources
+echo "Creating datasources"
+for datasource in ${datasource_list}
+do
+    curl -s -H 'Content-Type: application/json' -d @/tmp/$datasource http://localhost:3000/api/datasources
+done
+
 
 echo "Creating dashboards"
 for dashboard in ${dashboard_list}
